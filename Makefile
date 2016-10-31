@@ -6,7 +6,7 @@
 #    By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/07 18:07:52 by lfabbro           #+#    #+#              #
-#    Updated: 2016/04/17 17:54:48 by lfabbro          ###   ########.fr        #
+#    Updated: 2016/10/31 21:12:14 by lfabbro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,12 +25,12 @@ SRC_NAME = main.c push_swap.c\
 		   is_swapped.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
-LIB_NAMES = ftprintf
+LIB_NAMES = ft
 
 SRC_PATH = ./srcs/
 OBJ_PATH = ./objs/
 INC_PATH = ./includes/
-LIB_PATH = ./libftprintf/
+LIB_PATH = ./libft/
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -53,7 +53,6 @@ LIB = $(addprefix -l,$(LIB_NAMES))
 ## RULES ##
 all:
 	@make -C $(LIB_PATH)
-	@make -C $(LIB_PATH) clean
 	@echo "\x1b[44m\x1b[32mMaking push_swap\x1b[0m\x1b[0m"
 	@make $(NAME)
 
@@ -67,7 +66,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 clean :
 	@/bin/rm -fv $(OBJ)
 
-fclean : clean
+fclean : libfclean clean
 	@/bin/rm -fv $(NAME)
 
 libre :
